@@ -6,7 +6,7 @@ import classes from './Header.module.css';
 const MainHeader = (props) => {
   return (
     <header className={classes['main-header']}>
-      <h1>Login Website</h1>
+      <h1>SBU Exercise App</h1>
       <Nav/>
     </header>
   );
