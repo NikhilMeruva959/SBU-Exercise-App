@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useReducer, useContext, useRef} from "react";
+import React, { useState, useEffect, useReducer, useContext} from "react";
 
-import Card from "../UI/Card";
+import Card from "../UI/Card.js";
 import classes from "./Login.module.css";
-import Button from "../UI/Button";
+import Button from "../UI/Button.js";
 import AuthContext from "../auth-context/auth-context";
 
 const emailReducer = (state, action) => {
@@ -45,9 +45,6 @@ const Login = (props) => {
   });
 
   const authCtx = useContext(AuthContext);
-
-  const emailInputRef = useRef();
-  const passowordInputRef = useRef();
 
   // If no dependicies, then infinite loop
   useEffect(() => {
@@ -115,13 +112,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if(formIsValid){
-      authCtx.onLogin(emailState.value, passwordState.value);
-    } else if(!emailIsValid){
-      emailInputRef.current.focus();
-    } else{
-      passowordInputRef.current.focus();
-    }
+    authCtx.onLogin(emailState.value, passwordState.value);
   };
 
   return (
