@@ -5,8 +5,6 @@ import './index.css';
 import App from './App';
 import { AuthContextProvider } from './components/auth-context/auth-context';
 
-
-
 ReactDOM.render(
   <AuthContextProvider>
     <App />

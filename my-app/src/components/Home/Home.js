@@ -1,18 +1,22 @@
-import React, { useContext } from "react";
+import React from "react";
+import Card from "./Card/Card";
 
-import Card from "../UI/Card";
-import classes from "./Home.module.css";
-import AuthContext from "../auth-context/auth-context";
-import Button from "../UI/Button";
-
-const Home = (props) => {
-  const authContext = useContext(AuthContext);
-
+const Home = () => {
   return (
-    <Card className={classes.home}>
-      <h1>Welcome back!</h1>
-      <Button onClick={authContext.onLogout}>Logout</Button>
-    </Card>
+    <div>
+      <center className="all">
+        <div className="all-exercises">
+          <Card type="Arms" className="card" />
+          <Card type="Chest" className="card" />
+          <Card type="Shoulders" className="card" />
+          <Card type="Legs" className="card" />
+          <Card type="Back" className="card" />
+          <Card type="Abs" className="card" />
+        </div>
+
+        <div></div>
+      </center>
+    </div>
   );
 };
 
