@@ -19,12 +19,12 @@ const Card = ({ type }) => {
 
   // this should be filled with proper exercises provided by aneesh
   const data = {
-    Arms: ["a", "b"],
-    Chest: ["c", "d"],
-    Shoulders: ["e", "f"],
-    Legs: ["g", "h"],
-    Back: ["i", "j"],
-    Abs: ["k", "l"],
+    Arms: ["Barbell Curl", "Ez Bar Curls", "Hammer Curl", "Incline Dumbbell Curls", "Dumbbell Tricep Extenstions", "Dumbbell Tricep Press", "Cable Pushdowns", "Dumbbell Kickbacks"],
+    Chest: ["Bench Press", "Incline Bench Press", "Dip", "Chest Fly", "Dumbbell Press", "Incline Dumbbell Press", "Decline Bench", "Machine Chest Press"],
+    Shoulders: ["Lateral Dumbbell Press", "Arnold Press", "Machine Shoulder Press", "Dumbbell Shrug", "Standing Barbell Press", "Front Dumbbell Rasies", "Lateral Raises", "Rear Dumbbell Raises"],
+    Legs: ["Barbell Squat", "Romanian Deadlifts", "Seated Leg Press", "Hip Abduction", "Calfpress", "Leg Curl", "Single Leg Deadlifts", "Gobletsquat"],
+    Back: ["Dumbbelll Bent-over Rows", "Lateral Pulldowns", "Seated Cable Rows", "Barbbell Bent-over Rows", "Chinups", "T-Bar Rows", "Cleans", "Assisted Pullup Machine"],
+    Abs: ["Crunches", "Plank", "Push Ups", "Flutter Kicks", "Bicycle Crunches", "Leg Lifts", "V-Situps", "Mountain Climbers"],
   };
 
   let types = data[type];
