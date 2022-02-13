@@ -1,0 +1,20 @@
+.all-exercises {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: ridge;
+}
+
+.all {
+  display: flex;
+}
+
+.left {
+  flex: 0.3;
+}
+
+.right {
+  flex: 0.7;
+}
