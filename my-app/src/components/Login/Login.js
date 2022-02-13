@@ -4,6 +4,7 @@ import Card from "../UI/Card.js";
 import classes from "./Login.module.css";
 import Button from "../UI/Button.js";
 import AuthContext from "../auth-context/auth-context";
+import history from '../../history'
 
 const emailReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
@@ -147,7 +148,7 @@ const Login = (props) => {
           />
         </div>
         <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
+          <Button type="submit" className={classes.btn} disabled={!formIsValid} onClick={() => history.push('/dashboard')}>
             Login
           </Button>
         </div>
