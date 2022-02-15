@@ -3,6 +3,7 @@ import Card from "./Card/Card";
 
 const Home = () => {
   return (
+    
     <div>
       <center className="all">
         <div className="all-exercises">
