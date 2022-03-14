@@ -1,3 +1,7 @@
+const weight=0;
+const miniutes = 0;
+const time =0;
+
 function barbellsquat(weight, miniutes){
     return weight * 0.05288888 * time
 }

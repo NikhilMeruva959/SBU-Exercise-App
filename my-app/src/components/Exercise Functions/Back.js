@@ -1,3 +1,7 @@
+const weight=0;
+const miniutes = 0;
+const time =0;
+
 function dumbbelll_bentover_rows(weight, miniutes){
     return weight * 0.04533333 * time
 }

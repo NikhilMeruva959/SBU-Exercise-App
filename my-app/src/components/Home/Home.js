@@ -6,6 +6,7 @@ const Home = () => {
     
     <div>
       <center className="all">
+        <h1>Total Calories Burned:</h1>
         <div className="all-exercises">
           <Card type="Arms" className="card" />
           <Card type="Chest" className="card" />

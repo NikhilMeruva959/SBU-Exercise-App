@@ -1,3 +1,7 @@
+const weight=0;
+const miniutes = 0;
+const time =0;
+
 function bench_press(weight, miniutes){
     return weight * 0.05111111 * time
 }

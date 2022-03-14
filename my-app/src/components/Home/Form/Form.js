@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+//import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
+import AbFunc from "../../Exercise Functions/Abs";
 import "./Form.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +30,7 @@ let i = 0;
 const Form = ({ types }) => {
   const classes = useStyles();
   const [activity, setActivity] = useState(defaultActivity);
+  const [userCaloricTot, setUserCaloricTotal] = useState(0);
 
   const handleSlider = (e) => {
     const duration = e.target.getAttribute("aria-valuenow");
@@ -41,6 +43,7 @@ const Form = ({ types }) => {
           <Typography id="discrete-slider" gutterBottom>
             Type
           </Typography>
+          {/* // Selecting Exercise */}
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -67,6 +70,7 @@ const Form = ({ types }) => {
           onChange={handleSlider}
           style={{ marginBottom: "20px" }}
         />
+        {/* // Submit */}
         <Button
           type="submit"
           fullWidth

@@ -12,12 +12,7 @@ const Navigation = () => {
           <ul>
             {context.isLoggedIn && (
               <li>
-                <a href="/">Users</a>
-              </li>
-            )}
-            {context.isLoggedIn && (
-              <li>
-                <a href="/">Admin</a>
+                <a href="/">Graphs</a>
               </li>
             )}
             {context.isLoggedIn && (

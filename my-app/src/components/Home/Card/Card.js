@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 
 const Card = ({ type }) => {
   const [openForm, setOpenForm] = React.useState(false);
+  
   const displayForm = () => {
     console.log(openForm);
     setOpenForm(true);
@@ -33,6 +34,7 @@ const Card = ({ type }) => {
     <div className="card" id="card">
       <div>
         <h3>{type}</h3>
+        {/* if User didnt click open button */}
         {!openForm && (
           <Button
             type="submit"
@@ -45,6 +47,8 @@ const Card = ({ type }) => {
             Add Activity
           </Button>
         )}
+        {/* if User clicked open button -> Form */}
+
         {openForm && (
           <div>
             <Form types={types} />
