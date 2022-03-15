@@ -12,7 +12,7 @@ const Home = () => {
   //   console.log("You clciked me!")
   // }
 
-  const num = useContext(UserContext); 
+  const {userCaloricBurn, setUserCaloricBurn} = useContext(UserContext); 
 /*
 <center className="all">
         {/* <h1>Total Calories Burned: {userCaloricBurn}</h1> *
@@ -30,9 +30,14 @@ const Home = () => {
 */
   return (
     // <UserContext.Provider value={userCaloricBurn}>
-      <div>
-        <div>{num}</div>
-      </div>
+    <center className="all">
+      {/* <h1>Total Calories Burned: {userCaloricBurn}</h1> */}
+      <h1>Total Calories Burned:{userCaloricBurn}</h1>
+      <button onClick={() => {
+        setUserCaloricBurn(userCaloricBurn+1);
+        console.log("Your Increasing Button");
+      }}>Click Me Test</button>
+  </center>
     // </UserContext.Provider>
   );
 };
