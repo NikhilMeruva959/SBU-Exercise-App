@@ -1,22 +1,23 @@
-import React from "react";
+import React,{useContext} from "react";
 import Form from "../Form/Form";
 import "./Card.css";
-import Button from "@material-ui/core/Button";
 
-const Card = ({ type }) => {
-  const [openForm, setOpenForm] = React.useState(false);
+// import Button from "@material-ui/core/Button";
+
+const Card = (props) => {
+  // const [openForm, setOpenForm] = React.useState(false);
   
-  const displayForm = () => {
-    console.log(openForm);
-    setOpenForm(true);
-    console.log(openForm);
-  };
+  // const displayForm = () => {
+  //   console.log(openForm);
+  //   setOpenForm(true);
+  //   console.log(openForm);
+  // };
 
-  const cancelForm = () => {
-    console.log(openForm);
-    setOpenForm(false);
-    console.log(openForm);
-  };
+  // const cancelForm = () => {
+  //   console.log(openForm);
+  //   setOpenForm(false);
+  //   console.log(openForm);
+  // };
 
   // this should be filled with proper exercises provided by aneesh
   const data = {
@@ -27,14 +28,11 @@ const Card = ({ type }) => {
     Back: ["Dumbbelll Bent-over Rows", "Lateral Pulldowns", "Seated Cable Rows", "Barbbell Bent-over Rows", "Chinups", "T-Bar Rows", "Cleans", "Assisted Pullup Machine"],
     Abs: ["Crunches", "Plank", "Push Ups", "Flutter Kicks", "Bicycle Crunches", "Leg Lifts", "V-Situps", "Mountain Climbers"],
   };
-
-  let types = data[type];
-
-  return (
-    <div className="card" id="card">
+/*
+<div className="card" id="card">
       <div>
-        <h3>{type}</h3>
-        {/* if User didnt click open button */}
+        <h3>{props.type}</h3>
+        {/* if User didnt click open button *
         {!openForm && (
           <Button
             type="submit"
@@ -47,11 +45,13 @@ const Card = ({ type }) => {
             Add Activity
           </Button>
         )}
-        {/* if User clicked open button -> Form */}
+        {/* if User clicked open button -> Form *
 
         {openForm && (
           <div>
-            <Form types={types}/>
+            {/* <Form types={types}/> *
+            <Form />
+
             <br />
             <Button
               type="submit"
@@ -66,6 +66,15 @@ const Card = ({ type }) => {
           </div>
         )}
       </div>
+    </div>
+*/
+  // let types = data[props.type];
+
+  //const num = useContext(UserContext); 
+
+  return (
+    <div>
+      <Form/>
     </div>
   );
 };

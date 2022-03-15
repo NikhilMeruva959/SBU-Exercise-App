@@ -1,15 +1,22 @@
-import React, { useState, createContext} from "react";
+import React, {useContext} from "react";
 import Card from "./Card/Card";
+import {UserContext} from "../../UserContext.js";
 
-const UserContext = createContext();
+// export const UserContext = createContext();
 
-const Home = () => {
-  const [userCaloricBurn, setUserCaloricBurn] = useState(0);
+const Home = () => { 
+  // const [userCaloricBurn, setUserCaloricBurn] = useState(5);
 
-  return (
-    <UserContext.Provider value={userCaloricBurn}>
-      <center className="all">
-        <h1>Total Calories Burned: {userCaloricBurn}</h1>
+  // function updateCal(){
+  //   setUserCaloricBurn(userCaloricBurn + 1);
+  //   console.log("You clciked me!")
+  // }
+
+  const num = useContext(UserContext); 
+/*
+<center className="all">
+        {/* <h1>Total Calories Burned: {userCaloricBurn}</h1> *
+        <h1>Total Calories Burned:{num}</h1>
         <div className="all-exercises">
           <Card type="Arms" className="card" />
           <Card type="Chest" className="card" />
@@ -18,10 +25,15 @@ const Home = () => {
           <Card type="Back" className="card" />
           <Card type="Abs" className="card" />
         </div>
-
-        <div></div>
+        {/* <button onClick={updateCal}>Click Me Test</button> *
       </center>
-    </UserContext.Provider>
+*/
+  return (
+    // <UserContext.Provider value={userCaloricBurn}>
+      <div>
+        <div>{num}</div>
+      </div>
+    // </UserContext.Provider>
   );
 };
 
