@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState, createContext} from "react";
 import Card from "./Card/Card";
 
+const UserContext = createContext();
+
 const Home = () => {
+  const [userCaloricBurn, setUserCaloricBurn] = useState(0);
+
   return (
-    
-    <div>
+    <UserContext.Provider value={userCaloricBurn}>
       <center className="all">
-        <h1>Total Calories Burned:</h1>
+        <h1>Total Calories Burned: {userCaloricBurn}</h1>
         <div className="all-exercises">
           <Card type="Arms" className="card" />
           <Card type="Chest" className="card" />
@@ -18,7 +21,7 @@ const Home = () => {
 
         <div></div>
       </center>
-    </div>
+    </UserContext.Provider>
   );
 };
 

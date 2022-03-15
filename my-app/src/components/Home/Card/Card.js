@@ -51,7 +51,7 @@ const Card = ({ type }) => {
 
         {openForm && (
           <div>
-            <Form types={types} />
+            <Form types={types}/>
             <br />
             <Button
               type="submit"

@@ -1,6 +1,6 @@
 const weight=0;
 const miniutes = 0;
-const time =0;;
+const time =0;
 
 function crunches(weight, miniutes){
     return weight * 0.02266666 * time

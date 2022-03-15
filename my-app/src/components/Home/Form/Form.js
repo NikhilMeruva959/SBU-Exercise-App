@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Button from "@material-ui/core/Button";
@@ -8,7 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
-import AbFunc from "../../Exercise Functions/Abs";
+// import AbFunc from "../../Exercise Functions/Abs";
 import "./Form.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -27,10 +27,13 @@ const defaultActivity = {
 };
 
 let i = 0;
+
 const Form = ({ types }) => {
+  //useContext CaloricBurn
+  const userCaloricBurn = useContext(UserContext);
+
   const classes = useStyles();
   const [activity, setActivity] = useState(defaultActivity);
-  const [userCaloricTot, setUserCaloricTotal] = useState(0);
 
   const handleSlider = (e) => {
     const duration = e.target.getAttribute("aria-valuenow");
@@ -77,6 +80,10 @@ const Form = ({ types }) => {
           variant="contained"
           color="primary"
           className="button"
+          onSubmit={()=>{
+            setUserCaloricBurn(userCaloricBurn + 1);
+            console.log('Updated Caloric Burned');
+          }}
         >
           Submit
         </Button>
