@@ -1,23 +1,13 @@
-import React,{useContext} from "react";
+import React from "react";
 import Form from "../Form/Form";
 import "./Card.css";
 
-// import Button from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button";
 
 const Card = (props) => {
-  // const [openForm, setOpenForm] = React.useState(false);
-  
-  // const displayForm = () => {
-  //   console.log(openForm);
-  //   setOpenForm(true);
-  //   console.log(openForm);
-  // };
+  const [openForm, setOpenForm] = React.useState(false);
 
-  // const cancelForm = () => {
-  //   console.log(openForm);
-  //   setOpenForm(false);
-  //   console.log(openForm);
-  // };
+  console.log("openForm after Update State: " + openForm);
 
   // this should be filled with proper exercises provided by aneesh
   const data = {
@@ -28,30 +18,37 @@ const Card = (props) => {
     Back: ["Dumbbelll Bent-over Rows", "Lateral Pulldowns", "Seated Cable Rows", "Barbbell Bent-over Rows", "Chinups", "T-Bar Rows", "Cleans", "Assisted Pullup Machine"],
     Abs: ["Crunches", "Plank", "Push Ups", "Flutter Kicks", "Bicycle Crunches", "Leg Lifts", "V-Situps", "Mountain Climbers"],
   };
-/*
-<div className="card" id="card">
+
+  let types = data[props.type];
+
+
+  return (
+    <div className="card" id="card">
+      
       <div>
         <h3>{props.type}</h3>
-        {/* if User didnt click open button *
-        {!openForm && (
+
+        {/* if User didnt click open button */}
+        {openForm===false && (
           <Button
             type="submit"
             fullWidth
             variant="outlined"
             color="primary"
             className="button"
-            onClick={displayForm}
+            onClick={()=>{
+              console.log(openForm);
+              setOpenForm(true);
+            }}
           >
             Add Activity
           </Button>
         )}
-        {/* if User clicked open button -> Form *
 
-        {openForm && (
+        {/* if User clicked open button -> Form */}
+        {openForm===true && (
           <div>
-            {/* <Form types={types}/> *
-            <Form />
-
+            <Form types={types}/>
             <br />
             <Button
               type="submit"
@@ -59,22 +56,16 @@ const Card = (props) => {
               variant="outlined"
               color="secondary"
               className="button"
-              onClick={cancelForm}
+              onClick={() => {
+                console.log(openForm);
+                setOpenForm(false);
+              }}
             >
               Cancel
             </Button>
           </div>
         )}
       </div>
-    </div>
-*/
-  // let types = data[props.type];
-
-  //const num = useContext(UserContext); 
-
-  return (
-    <div>
-      <Form/>
     </div>
   );
 };

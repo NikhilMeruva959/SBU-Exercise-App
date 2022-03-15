@@ -6,8 +6,6 @@ import MainHeader from './components/Header/Header';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home'
 
-let caloriesBurned = 2;
-
 function App() {
   const context = useContext(AuthContext);
   const [userCaloricBurn, setUserCaloricBurn] = useState(5);
