@@ -7,6 +7,16 @@ import Button from "@material-ui/core/Button";
 const Card = (props) => {
   const [openForm, setOpenForm] = React.useState(false);
 
+  function openFormTrue(){
+    console.log(openForm);
+    setOpenForm(true);
+  }
+
+  function openFormFalse(){
+    console.log(openForm);
+    setOpenForm(false);
+  }
+
   console.log("openForm after Update State: " + openForm);
 
   // this should be filled with proper exercises provided by aneesh
@@ -36,10 +46,7 @@ const Card = (props) => {
             variant="outlined"
             color="primary"
             className="button"
-            onClick={()=>{
-              console.log(openForm);
-              setOpenForm(true);
-            }}
+            onClick={openFormTrue}
           >
             Add Activity
           </Button>
@@ -48,7 +55,7 @@ const Card = (props) => {
         {/* if User clicked open button -> Form */}
         {openForm===true && (
           <div>
-            <Form types={types}/>
+            <Form exerciseTypes={types} openForm={openForm} openFormFalse={openFormFalse}/>
             <br />
             <Button
               type="submit"
@@ -56,10 +63,7 @@ const Card = (props) => {
               variant="outlined"
               color="secondary"
               className="button"
-              onClick={() => {
-                console.log(openForm);
-                setOpenForm(false);
-              }}
+              onClick={openFormFalse}
             >
               Cancel
             </Button>
