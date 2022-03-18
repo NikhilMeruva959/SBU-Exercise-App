@@ -1,28 +1,26 @@
-const weight=0;
-const miniutes = 0;
-const time =0;
-
-function dumbbelll_bentover_rows(weight, miniutes){
-    return weight * 0.04533333 * time
-}
-function lateral_pulldowns(weight, miniutes){
-    return weight * 0.04533333 * time
-}
-function seated_cablerows(weight, miniutes){
-    return weight * 0.04155555 * time
-}
-function barbbell_bentover_rows(weight, miniutes){
-    return weight * 0.04533333 * time
-}
-function chinups(weight, miniutes){
-    return weight * 0.04911111 * time
-}
-function tbar_rows(weight, miniutes){
-    return weight * 0.04533333 * time
-}
-function cleans(weight, miniutes){
-    return weight * 0.05666666 * time
-}
-function assisted_pullup_machine(weight, miniutes){
-    return weight * 0.04533333 * time
-}
+var Back = {
+    firstFunc: function dumbbelll_bentover_rows(weight, miniutes){
+      return weight * 0.04533333 * miniutes
+  },
+    secondFunc: function lateral_pulldowns(weight, miniutes){
+      return weight * 0.04533333 * miniutes
+  },
+    thirdFunc: function seated_cablerows(weight, miniutes){
+      return weight * 0.04155555 * miniutes
+  },
+    fourthFunc: function barbbell_bentover_rows(weight, miniutes){
+      return weight * 0.04533333 * miniutes
+  },
+    fifthFunc: function chinups(weight, miniutes){
+      return weight * 0.04911111 * miniutes
+  },
+    sixthFunc: function tbar_rows(weight, miniutes){
+      return weight * 0.04533333 * miniutes
+  },
+    seventhFunc: function cleans(weight, miniutes){
+      return weight * 0.05666666 * miniutes
+  },
+    eighthFunc: function assisted_pullup_machine(weight, miniutes){
+      return weight * 0.04533333 * miniutes
+  }
+  }

@@ -10,6 +10,13 @@ import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
 import "./Form.css";
 
+import Arms from "../../Exercise Functions/Arms";
+import Abs from "../../Exercise Functions/Abs";
+import Back from "../../Exercise Functions/Back";
+import Chest from "../../Exercise Functions/Chest";
+import Legs from "../../Exercise Functions/Legs";
+import Shoulders from "../../Exercise Functions/Shoulders";
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     minWidth: "50%",
@@ -19,13 +26,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const defaultActivity = {
-  name: "",
-  type: 1,
-  duration: 5,
-};
-
 let i = 0
+
+const weight=0;
+const miniutes = 0;
+
 
 
 const Form = (props) => {
@@ -42,15 +47,15 @@ const Form = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUserCaloricBurn(duration+userCaloricBurn);
+    setUserCaloricBurn(updateCalFunc);
     console.log("Activity: " + activity);
     console.log("DDD: " + duration);
     //aledrt('Cal was submitted: ' + userCaloricBurn);
 
   }
 
-  function updateCalFunc(durationVar){
-    setUserCaloricBurn(parseInt(userCaloricBurn)+parseInt(durationVar));
+  function updateCalFunc(){
+    setUserCaloricBurn();
     console.log("Your Increasing Calories: " + typeof(durationVar));
   };
 
@@ -73,6 +78,7 @@ const Form = (props) => {
               onChange={(e) => {
                 setActivity(e.target.value);
                 console.log(activity);
+                console.log("IIII: " + i);
               }}
             >
               {/* //types.map to the type and value i++ because unique key */}
