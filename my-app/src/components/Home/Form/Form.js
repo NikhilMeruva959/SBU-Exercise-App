@@ -3,13 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { UserContext } from "../../../UserContext.js";
 
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
-import AbFunc from "../../Exercise Functions/Abs";
 import "./Form.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,19 +32,20 @@ const Form = (props) => {
 
   const classes = useStyles();
 
-  const [activity, setActivity] = useState(defaultActivity);
-  const [duration, setDuration] = useState();
+  const [activity, setActivity] = useState("");
+  const [duration, setDuration] = useState(0);
   const {userCaloricBurn, setUserCaloricBurn} = useContext(UserContext); 
 
   const handleSlider = (e, newVal) => {
     setDuration(newVal);
-    console.log(duration);
   };
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
-    alert('Cal was submitted: ' + userCaloricBurn);
+    event.preventDefault();
+    setUserCaloricBurn(duration+userCaloricBurn);
+    console.log("Activity: " + activity);
     console.log("DDD: " + duration);
+    //aledrt('Cal was submitted: ' + userCaloricBurn);
 
   }
 
@@ -55,7 +54,6 @@ const Form = (props) => {
     console.log("Your Increasing Calories: " + typeof(durationVar));
   };
 
-  //console.log(i);
 
   return (
     // The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
@@ -72,6 +70,10 @@ const Form = (props) => {
               id="demo-simple-select"
               style={{ minWidth: "100%" }}
               name="type"
+              onChange={(e) => {
+                setActivity(e.target.value);
+                console.log(activity);
+              }}
             >
               {/* //types.map to the type and value i++ because unique key */}
               {props.exerciseTypes.map((type) => (
@@ -92,6 +94,7 @@ const Form = (props) => {
             name="duration"
             style={{ marginBottom: "20px" }}
             onChangeCommitted={handleSlider}  
+            
           />
           {/* // Submit */}
           <Button
@@ -100,7 +103,6 @@ const Form = (props) => {
             variant="contained"
             color="primary"
             className="button"
-            onClick={props.openFormFalse}
           >
             Submit
           </Button>
