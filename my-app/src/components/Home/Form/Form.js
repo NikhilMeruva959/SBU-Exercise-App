@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import UserContext from "../../../App.js";
+import { UserContext } from "../../../UserContext.js";
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -27,27 +27,41 @@ const defaultActivity = {
   duration: 5,
 };
 
-let i = 0;
+let i = 0
 
 
 const Form = (props) => {
 
   const classes = useStyles();
-  const [activity, setActivity] = useState(defaultActivity);
 
-  const handleSlider = (e) => {
-    const duration = e.target.getAttribute("aria-valuenow");
-    setActivity({ duration: duration });
+  const [activity, setActivity] = useState(defaultActivity);
+  const [duration, setDuration] = useState();
+  const {userCaloricBurn, setUserCaloricBurn} = useContext(UserContext); 
+
+  const handleSlider = (e, newVal) => {
+    setDuration(newVal);
+    console.log(duration);
   };
 
+  const handleSubmit = (event) => {
+    // event.preventDefault();
+    alert('Cal was submitted: ' + userCaloricBurn);
+    console.log("DDD: " + duration);
 
-  console.log(i);
+  }
+
+  function updateCalFunc(durationVar){
+    setUserCaloricBurn(parseInt(userCaloricBurn)+parseInt(durationVar));
+    console.log("Your Increasing Calories: " + typeof(durationVar));
+  };
+
+  //console.log(i);
 
   return (
     // The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
     //Clicking on a "Submit" button, prevent it from submitting a form
 
-    <form noValidate onSubmit={(e) => e.preventDefault()}>
+    <form noValidate onSubmit={handleSubmit}>
         <FormControl className={classes.formControl}>
           <div style={{ marginTop: "20px", marginBottom: "30px" }}>
             <Typography id="discrete-slider" gutterBottom>Select your exercise:</Typography>
@@ -68,16 +82,16 @@ const Form = (props) => {
 
           <Typography id="discrete-slider" gutterBottom>Duration (Minutes):</Typography>
           <Slider
+            aria-label="default"
             defaultValue={5}
-            aria-labelledby="discrete-slider"
             valueLabelDisplay="auto"
             step={1}
             marks
             min={1}
             max={10}
             name="duration"
-            onChange={handleSlider}
             style={{ marginBottom: "20px" }}
+            onChangeCommitted={handleSlider}  
           />
           {/* // Submit */}
           <Button
