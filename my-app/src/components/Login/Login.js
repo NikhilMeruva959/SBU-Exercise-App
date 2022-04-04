@@ -70,7 +70,7 @@ const Login = (props) => {
       );
     }, 500);
 
-    // Cleanup function that will run before useEffect executs this function in time
+    // Cleafnup function that will run before useEffect executs this function in time
     // Except for the 1st time, this cleanup function will run
     // Also will run whenever the component unmounts from DOM
     return () => {

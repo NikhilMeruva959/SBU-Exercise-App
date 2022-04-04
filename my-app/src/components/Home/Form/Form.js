@@ -31,15 +31,14 @@ let i = 0
 const weight=0;
 const miniutes = 0;
 
-
-
 const Form = (props) => {
 
   const classes = useStyles();
 
   const [activity, setActivity] = useState("");
-  const [duration, setDuration] = useState(0);
+  const [duration, setDuration] = useState(5);
   const {userCaloricBurn, setUserCaloricBurn} = useContext(UserContext); 
+  const openFormFalse = props.openFormFalse;
 
   const handleSlider = (e, newVal) => {
     setDuration(newVal);
@@ -48,6 +47,8 @@ const Form = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setUserCaloricBurn(updateCalFunc);
+    openFormFalse();
+    //console.log("Type: " + type);
     console.log("Activity: " + activity);
     console.log("DDD: " + duration);
     //aledrt('Cal was submitted: ' + userCaloricBurn);
@@ -55,7 +56,7 @@ const Form = (props) => {
   }
 
   function updateCalFunc(){
-    setUserCaloricBurn();
+    setUserCaloricBurn(duration+userCaloricBurn);
     console.log("Your Increasing Calories: " + typeof(durationVar));
   };
 
