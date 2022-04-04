@@ -55,7 +55,7 @@ const Card = (props) => {
         {/* if User clicked open button -> Form */}
         {openForm===true && (
           <div>
-            <Form exerciseTypes={types} openFormFalse={openFormFalse}/>
+            <Form exercise={props.type} exerciseTypes={types} openFormFalse={openFormFalse}/>
             <br />
             <Button
               type="submit"

@@ -16,6 +16,7 @@ import Back from "../../Exercise Functions/Back";
 import Chest from "../../Exercise Functions/Chest";
 import Legs from "../../Exercise Functions/Legs";
 import Shoulders from "../../Exercise Functions/Shoulders";
+import { type } from "@testing-library/user-event/dist/type";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -39,6 +40,7 @@ const Form = (props) => {
   const [duration, setDuration] = useState(5);
   const {userCaloricBurn, setUserCaloricBurn} = useContext(UserContext); 
   const openFormFalse = props.openFormFalse;
+  const exercise = props.exercise;
 
   const handleSlider = (e, newVal) => {
     setDuration(newVal);
@@ -51,14 +53,18 @@ const Form = (props) => {
     //console.log("Type: " + type);
     console.log("Activity: " + activity);
     console.log("DDD: " + duration);
+    console.log("YOLOOOOO: " + exercise);
     //aledrt('Cal was submitted: ' + userCaloricBurn);
 
   }
 
   function updateCalFunc(){
     setUserCaloricBurn(duration+userCaloricBurn);
-    console.log("Your Increasing Calories: " + typeof(durationVar));
   };
+
+  function keyOutput(){
+    return i++;
+  }
 
 
   return (
@@ -78,13 +84,11 @@ const Form = (props) => {
               name="type"
               onChange={(e) => {
                 setActivity(e.target.value);
-                console.log(activity);
-                console.log("IIII: " + i);
               }}
             >
               {/* //types.map to the type and value i++ because unique key */}
               {props.exerciseTypes.map((type) => (
-                <MenuItem value={type} key={i++}>{type}</MenuItem>
+                <MenuItem value={type} key={keyOutput()}>{type}</MenuItem>
               ))}
             </Select>
           </div>
@@ -104,7 +108,7 @@ const Form = (props) => {
             
           />
           {/* // Submit */}
-          <Button
+          {activity !== "" && (<Button
             type="submit"
             fullWidth
             variant="contained"
@@ -113,6 +117,7 @@ const Form = (props) => {
           >
             Submit
           </Button>
+          )}
         </FormControl>
       </form>
     
