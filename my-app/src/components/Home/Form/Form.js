@@ -204,6 +204,7 @@ const Form = (props) => {
   const {userCaloricBurn, setUserCaloricBurn} = useContext(UserContext); 
   const openFormFalse = props.openFormFalse;
   const exercise = props.exercise;
+  const activityIndex = 0;
 
   const handleSlider = (e, newVal) => {
     setDuration(newVal);
@@ -214,7 +215,8 @@ const Form = (props) => {
     setUserCaloricBurn(updateCalFunc);
     openFormFalse();
     //console.log("Type: " + type);
-    console.log("Activity: " + activity.indexOf());
+    console.log("Activity: " + activity);
+    console.log("Activity Index: " + i);
     console.log("DDD: " + duration);
     console.log("YOLOOOOO: " + exercise + " hh " + typeof(exercise));
     //aledrt('Cal was submitted: ' + userCaloricBurn);
@@ -224,10 +226,6 @@ const Form = (props) => {
     //setUserCaloricBurn(duration+userCaloricBurn);
     setUserCaloricBurn(userCaloricBurn + eval(exercise).firstFunc(140, duration));
   };
-
-  function keyOutput(){
-    return i++;
-  }
 
 
   return (
@@ -250,8 +248,8 @@ const Form = (props) => {
               }}
             >
               {/* //types.map to the type and value i++ because unique key */}
-              {props.exerciseTypes.map((type) => (
-                <MenuItem value={type} key={keyOutput()}>{type}</MenuItem>
+              {props.exerciseTypes.map((type, index) => (
+                <MenuItem value={type} key={index}>{type}{" " + index}</MenuItem>
               ))}
             </Select>
           </div>
