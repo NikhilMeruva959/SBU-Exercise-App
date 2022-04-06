@@ -8,7 +8,7 @@ import Home from './components/Home/Home'
 
 function App() {
   const context = useContext(AuthContext);
-  const [userCaloricBurn, setUserCaloricBurn] = useState(5);
+  const [userCaloricBurn, setUserCaloricBurn] = useState(0);
 
   return (
       <React.Fragment>

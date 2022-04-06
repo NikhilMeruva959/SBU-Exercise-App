@@ -1,11 +1,11 @@
-var Arms = {
-    firstFunc: function barbell_curl(weight, miniutes){
-        return weight * 0.03977777 * miniutes
+const Arms = {
+    firstFunc: function Barbell_Curl(weight, miniutes){
+        return weight * 0.03977777 * miniutes;
     },
-    secondFunc: function ez_bar_curls(weight, miniutes){
+    secondFunc: function Ez_Bar_Curls(weight, miniutes){
         return weight * 0.04155555 * miniutes
     },
-    thirdFunc: function hammer_curl(weight, miniutes){
+    thirdFunc: function Hammer_Curl(weight, miniutes){
         return weight * 0.03588888 * miniutes
     },
     fourthFunc: function incline_dumbbellcurls(weight, miniutes){
