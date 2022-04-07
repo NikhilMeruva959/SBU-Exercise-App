@@ -4,7 +4,6 @@
 - Developed a graph section where user data is showcased visually
 
 ## Personal Exercise App 
-![ExpenseCalc](https://github.com/NikhilMeruva959/React-Tutorial/blob/master/Example%20Images/ReactExpenseCalc.png?raw=true)
 
 - Go check it out at: [SBU Exercise App](https://sbuhackathonexerciseapp.web.app)
 - Worked with React Components, State, Events, List, and Conditional Content

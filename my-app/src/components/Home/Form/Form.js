@@ -202,10 +202,10 @@ const Form = (props) => {
 
   const [activity, setActivity] = useState("");
   const [duration, setDuration] = useState(5);
+  const [userTotExercise, setUserTotExercise] = useState([]);
   const {userCaloricBurn, setUserCaloricBurn} = useContext(UserContext); 
   const openFormFalse = props.openFormFalse;
   const exercise = props.exercise;
-  const activityIndex = 0;
 
   const handleSlider = (e, newVal) => {
     setDuration(newVal);
@@ -221,7 +221,10 @@ const Form = (props) => {
     console.log("Activity Index: " + i);
     console.log("DDD: " + duration);
     console.log("YOLOOOOO: " + exercise + " hh " + typeof(exercise));
-    console.log("Calories Burned for this Exercise: " + (typeof(userCaloricBurn) + " " + typeof(eval(exercise)[activity](140, duration))))
+    console.log("Calories Burned for this Exercise: " + (typeof(userCaloricBurn) + " " + typeof(eval(exercise)[activity](140, duration))));
+    var obj = {exercise: exercise, activity: activity};
+    setUserTotExercise(userTotExercise.push(obj));
+    console.log(userTotExercise);
     //aledrt('Cal was submitted: ' + userCaloricBurn);
   }
 
