@@ -27,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+let i = 0
+
 const weight=0;
 const miniutes = 0;
 
@@ -200,11 +202,10 @@ const Form = (props) => {
 
   const [activity, setActivity] = useState("");
   const [duration, setDuration] = useState(5);
-  const [userTotExercise, setUserTotExercise] = useState([]);
   const {userCaloricBurn, setUserCaloricBurn} = useContext(UserContext); 
   const openFormFalse = props.openFormFalse;
   const exercise = props.exercise;
-  
+  const activityIndex = 0;
 
   const handleSlider = (e, newVal) => {
     setDuration(newVal);
@@ -217,19 +218,17 @@ const Form = (props) => {
     //console.log("Type: " + type);
     console.log("Activity: " + typeof(activity));
     console.log("Activity " + activity);
+    console.log("Activity Index: " + i);
     console.log("DDD: " + duration);
     console.log("YOLOOOOO: " + exercise + " hh " + typeof(exercise));
-    console.log("Calories Burned for this Exercise: " + eval(exercise)[activity](140, duration));
-    const obj = {exercise: exercise, activity: activity};
-    // setUserTotExercise(userTotExercise.push(obj));
-    // console.log(userTotExercise);
+    console.log("Calories Burned for this Exercise: " + (typeof(userCaloricBurn) + " " + typeof(eval(exercise)[activity](140, duration))))
     //aledrt('Cal was submitted: ' + userCaloricBurn);
   }
 
   function updateCalFunc(){
     //setUserCaloricBurn(duration+userCaloricBurn);
     //setActivity(stringifyNumber(activity)+"Func");
-    setUserCaloricBurn((userCaloricBurn + eval(exercise)[activity](140, duration)).toFixed(1));
+    setUserCaloricBurn((parseFloat(userCaloricBurn) + eval(exercise)[activity](140, duration)).toFixed(1));
   };
 
   //function converting num->str
