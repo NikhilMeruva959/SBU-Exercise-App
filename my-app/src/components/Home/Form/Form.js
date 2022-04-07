@@ -32,6 +32,7 @@ let i = 0
 const weight=0;
 const miniutes = 0;
 
+//defining your functions in a hash object
 const Arms = {
   firstFunc: function Barbell_Curl(weight, miniutes){
       return weight * 0.03977777 * miniutes;
@@ -215,17 +216,30 @@ const Form = (props) => {
     setUserCaloricBurn(updateCalFunc);
     openFormFalse();
     //console.log("Type: " + type);
-    console.log("Activity: " + activity);
+    console.log("Activity: " + typeof(activity));
+    console.log("Activity " + activity);
     console.log("Activity Index: " + i);
     console.log("DDD: " + duration);
     console.log("YOLOOOOO: " + exercise + " hh " + typeof(exercise));
+    console.log("Calories Burned for this Exercise: " + eval(exercise)[activity](140, duration))
     //aledrt('Cal was submitted: ' + userCaloricBurn);
   }
 
   function updateCalFunc(){
     //setUserCaloricBurn(duration+userCaloricBurn);
-    setUserCaloricBurn(userCaloricBurn + eval(exercise).firstFunc(140, duration));
+    //setActivity(stringifyNumber(activity)+"Func");
+    setUserCaloricBurn((userCaloricBurn + eval(exercise)[activity](140, duration)).toFixed(1));
   };
+
+  //function converting num->str
+  var special = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth', 'thirteenth', 'fourteenth', 'fifteenth', 'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth'];
+  var deca = ['twent', 'thirt', 'fort', 'fift', 'sixt', 'sevent', 'eight', 'ninet'];
+
+  function stringifyNumber(n) {
+    if (n < 20) return special[n];
+    if (n%10 === 0) return deca[Math.floor(n/10)-2] + 'ieth';
+    return deca[Math.floor(n/10)-2] + 'y-' + special[n%10];
+  }
 
 
   return (
@@ -244,12 +258,12 @@ const Form = (props) => {
               style={{ minWidth: "100%" }}
               name="type"
               onChange={(e) => {
-                setActivity(e.target.value);
+                setActivity(stringifyNumber(e.target.value)+"Func");
               }}
             >
               {/* //types.map to the type and value i++ because unique key */}
               {props.exerciseTypes.map((type, index) => (
-                <MenuItem value={type} key={index}>{type}{" " + index}</MenuItem>
+                <MenuItem value={index} key={index}>{type}</MenuItem>
               ))}
             </Select>
           </div>
