@@ -17,11 +17,6 @@ const Home = () => {
           <Card type="Back" className="card" />
           <Card type="Abs" className="card" />
       </div>
-      
-      <button onClick={() => {
-        setUserCaloricBurn(userCaloricBurn+1);
-        console.log("Your Increasing Button");
-      }}>Click Me Test</button>
 
   </center>
   );
